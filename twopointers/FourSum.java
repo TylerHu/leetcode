@@ -11,7 +11,7 @@ package twopointers;
  * to figure out how to downgrade to two sum problem. Every time we iterate the element in the array, call the recursive method
  * and decrease k until k equals to 2, also, set the start index of two sum as the next element of current element. Now
  * the problem becomes to find two numbers between the next element and the last element, and the sum of these two numbers
- * are equals to target-(current element). 
+ * are equals to target-(current element).
  */
 public class FourSum {
 
