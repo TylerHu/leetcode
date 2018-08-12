@@ -7,7 +7,8 @@ package backtracking;
  * Note: The solution set must not contain duplicate subsets.
  *
  * Solution: There are two kinds of approach to solve this problem. The first one is using backtracking approach, which is:
- * add number to a templist, and backtrack it's next elements, and then remove the last element in the templist, and do it again.
+ * add number to a templist, and then backtrack it's next elements, after that, remove the last element in the templist and
+ * keep the looping going.
  * The second approach is when doing the iterating, there are only two choices, add the current element to the subset, or
  * do not add the current element to the subset. No need to do a recursive call.
  */
