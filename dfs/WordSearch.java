@@ -1,4 +1,4 @@
-package recursive;
+package dfs;
 
 /**
  * LeetCode79. Word Search(https://leetcode.com/problems/word-search/description/)
@@ -7,7 +7,7 @@ package recursive;
  * The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally
  * or vertically neighboring. The same letter cell may not be used more than once.
  *
- * Solution: Do it in an recursive way to check the whether one of the upper, lower, left, and right element is equals to
+ * Solution: Use the dfs approach to check the whether one of the upper, lower, left, and right element is equals to
  * the next character of the word. First, find an element that is equal to the begining of the word, and search it's adjacent
  * cells for next character of the word. Define a 2D array to mark whether current element is already visited(There is one trick
  * that do not need to define a 2D array, just set the result of board[x][y] xor 256 to board[x][y], why 256? Because the
