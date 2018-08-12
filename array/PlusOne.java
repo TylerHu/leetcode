@@ -10,7 +10,7 @@ package array;
  * Solution: At first, I tried to solve this problem by using a "carry" variable, and pass it to all the element from right
  * to left. But it turned out to be very slow.
  * Here the solution is check whether there is an element less than 9, if the digit is less than 9, increase by 1 and return it.
- * otherwise, set it's digit to 0, and continue loop over the array. 
+ * otherwise, set it's digit to 0, and continue loop over the array.
  */
 public class PlusOne {
     public int[] plusOne(int[] digits) {
