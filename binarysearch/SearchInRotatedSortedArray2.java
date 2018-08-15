@@ -12,7 +12,7 @@ package binarysearch;
  * side. When nums[low] <= nums[middle], means that the left part of the array is sorted, so when target is bigger than the low number
  * and smaller than the middle number, the target number is in the left part, we could set high = middle-1, to search in the left part
  * later, otherwise, the target is in the right part of the array, set how = middle+1 to search in the right part later.
- * When nums[low] > nums[middle], means that the rotation point is in the left part, and the right part of the array is sorted.  
+ * When nums[low] > nums[middle], means that the rotation point is in the left part, and the right part of the array is sorted.
  */
 public class SearchInRotatedSortedArray2 {
     public boolean search(int[] nums, int target) {
