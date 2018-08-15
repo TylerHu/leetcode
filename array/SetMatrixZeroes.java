@@ -13,7 +13,7 @@ package array;
  * each element of the matrix according to the states stored in the first row and first column. Again, when doing the loop
  * over, the column index is between 1 to column size, the first column is exclued.
  */
-public class SetMatrixZeros {
+public class SetMatrixZeroes {
     public void setZeroes(int[][] matrix) {
         int m = matrix.length;
         int n = matrix[0].length;
