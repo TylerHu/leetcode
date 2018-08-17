@@ -7,8 +7,8 @@ package array;
  *
  * Solutuion: First traverse from left to right and increse upper low index, then traverse from up to down and decrease the right column index,
  * then traverse from right to left and decrease lower low index, then traverse from bottom to up and increase left column index. There is one
- * one need to note to prevent duplicate result. That is when traverse from right to left, also need to check whether the row condition is matched, when traverse from bottom
- * to up, also need to check whether the column condition is matched.
+ * one need to note to prevent duplicate result. That is when traverse from right to left, also need to check whether the row condition is matched,
+ * when traverse from bottom to up, also need to check whether the column condition is matched.
  */
 public class SpiralMatrix {
     public List<Integer> spiralOrder(int[][] matrix) {
@@ -40,7 +40,7 @@ public class SpiralMatrix {
             for (int j = right; j >= left && upper <= lower; --j) {
                 result.add(matrix[lower][j]);
             }
-            //decrease bottom column index
+            //decrease bottom row index
             lower--;
 
             //traverse from bottom to up, also need to check the column condition
