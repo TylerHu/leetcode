@@ -11,13 +11,11 @@ package backtracking;
  * The solution set must not contain duplicate combinations.
  *
  * Solution: Use backtracking approach. One thing need to know is that when doing the backtracking, in order to reuse the last elemnet,
- * the start index of next round is still the same with current one. And we have to sort the array first, so when the target becomes negative,
- * we can just skip to next round.
+ * the start index of next round is still the same with current one. When the target becomes negative, we can just skip to next round.
  */
 public class CombinationSum {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(candidates);
         backtrack(result, new ArrayList<>(), candidates, target, 0);
         return result;
     }
