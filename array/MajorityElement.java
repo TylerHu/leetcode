@@ -12,7 +12,6 @@ package array;
 public class MajorityElement {
 
     public int majorityElement(int[] nums) {
-        int n = nums.length;
         int major = nums[0];
         int count = 0;
         for (int num : nums) {
