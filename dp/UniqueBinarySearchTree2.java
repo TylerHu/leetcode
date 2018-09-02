@@ -32,7 +32,7 @@ public class UniqueBinarySearchTree2 {
             for (TreeNode leftNode: leftSubtrees) {
                 for (TreeNode rightNode : rightSubtrees) {
                     //combine the left subtrees and right subtrees together
-                    //it's cartesian product 
+                    //it's cartesian product
                     TreeNode root = new TreeNode(i);
                     root.left = leftNode;
                     root.right = rightNode;
