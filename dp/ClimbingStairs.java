@@ -8,7 +8,8 @@ package dp;
  * Note: Given n will be a positive integer.
  *
  * Solution: Typical dp problem, for step i, we could reach step i from step (i-1) or from step (i-2). So the dp formula
- * is dp[i] = dp[i-1] + dp[i-2]
+ * is dp[i] = dp[i-1] + dp[i-2]. In fact, this is also a Fabonacci number, so we could define variables f0, f1, f2, and
+ * f2 = f0 + f1, swap f0 with f1, and f1 with f2 each time when looping over.
  */
 public class ClimbingStairs {
     public int climbStairs(int n) {
@@ -25,5 +26,20 @@ public class ClimbingStairs {
         }
         return dp[n];
 
+    }
+
+    public int climbStairs2(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        int f0 = 1;
+        int f1 = 1;
+        int f2 = 1;
+        for (int i = 2; i <= n; ++i) {
+            f2 = f0 + f1;
+            f0 = f1;
+            f1 = f2;
+        }
+        return f2;
     }
 }
