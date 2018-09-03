@@ -12,6 +12,8 @@ package dp;
  * Solution: Define variable current represents the number of arithmetic slices with A[i] as the last number, if A[i] - A[i-1] == A[i-1] - A[i-2],
  * means A[i-2]A[i-1]A[i] can make a arithmetic slices, increase current count, and add to total number of arithmetic slices. Otherwise, reset
  * current count to zero.
+ *
+ * Another Solution: Use dp approach, define a dp array, dp[i] represents the number of slices that ends with number i.
  */
 public class ArithmeticSlices {
     public int numberOfArithmeticSlices(int[] A) {
@@ -27,6 +29,20 @@ public class ArithmeticSlices {
                 //reset current count to zero
                 current = 0;
             }
+        }
+        return sum;
+    }
+
+    public int numberOfArithmeticSlices2(int[] A) {
+        int sum = 0;
+        int[] dp = new int[A.length];
+        for (int i = 2; i < A.length; ++i) {
+            if (A[i] - A[i-1] == A[i-1] - A[i-2]) {
+                dp[i] = dp[i-1] + 1;
+            } else {
+                dp[i] = 0;
+            }
+            sum += dp[i];
         }
         return sum;
     }
