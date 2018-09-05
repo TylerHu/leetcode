@@ -35,4 +35,27 @@ public class LongestPalindromicSubstring {
         return res;
     }
 
+    //bottom-up solution
+    public String longestPalindrome2(String s) {
+        String res = null;
+        int n = s.length();
+        if (n == 0) {
+            return "";
+        }
+
+        boolean[][] dp = new boolean[n][n];
+        dp[0][0] = true;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                if (s.charAt(j) == s.charAt(i) && (i-j+1 < 3 || dp[i-1][j+1])) {
+                    dp[i][j] = true;
+                }
+                if (dp[i][j] && (res == null || i-j+1 >= res.length())) {
+                    res = s.substring(j,i+1);
+                }
+            }
+        }
+        return res;
+    }
+
 }
