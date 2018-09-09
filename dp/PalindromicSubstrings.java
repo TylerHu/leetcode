@@ -8,7 +8,8 @@ package dp;
  *
  * Solution: Iterate through the string, for each character, check whether there are palindromic substrings whose middle point is character
  * i. There are some difference between odd length palindromic substring and even length palindromic substring, so we need to check
- * odd length palindromic and even length palindromic respectively.
+ * odd length palindromic and even length palindromic respectively. Or we could also use dp approach, define 2D array dp, dp[i][j] represents
+ * whether substring(i,j) is palindrome, and the dp formula is : dp[i][j] = (s.charAt(i) == s.charAt(j) && (i-j+1<3 || dp[i-1][j+1])
  */
 public class PalindromicSubstring {
     int count = 0;
@@ -26,5 +27,26 @@ public class PalindromicSubstring {
             left--;
             right++;
         }
+    }
+
+
+    public int countSubstrings2(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        int n = s.length();
+        int count = 0;
+        boolean [][] dp = new boolean[n][n];
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j <= i; ++j) {
+                if (s.charAt(i) == s.charAt(j) && (i-j+1 < 3 || dp[i-1][j+1])) {
+                    dp[i][j] = true;
+                    count++;
+                } else {
+                    dp[i][j] = false;
+                }
+            }
+        }
+        return count;
     }
 }
