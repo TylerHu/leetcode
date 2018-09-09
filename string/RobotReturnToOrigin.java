@@ -9,7 +9,7 @@ package string;
  * L (left), U (up), and D (down). If the robot returns to the origin after it finishes all of its moves, return true. Otherwise,
  * return false.
  *
- * Solution: Just check whether the steps of up and down are equal, and the steps of left and right are equal. 
+ * Solution: Just check whether the steps of up and down are equal, and the steps of left and right are equal.
  */
 public class RobotReturnToOrigin {
     public boolean judgeCircle(String moves) {
