@@ -10,22 +10,22 @@ package tree;
  * add the value in a reverse order. And also push the right nodes. into the stack first, rather than left nodes.
  */
 public class BinaryTreePostorderTraversal {
-    public List<Integer> preorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
-        Stack<TreeNode> stack = new Stack<>();
-        while (root != null || !stack.isEmpty()) {
-            while (root != null) {
-                result.add(root.val);
-                stack.push(root);
-                root = root.left;
-            }
-            root = stack.pop();
-            root = root.right;
-        }
+        postorder(result, root);
         return result;
+    }
+
+    public void postorder(List<Integer> list, TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        postorder(list, root.left);
+        postorder(list, root.right);
+        list.add(root.val);
     }
 
     public List<Integer> postorderTraversal(TreeNode root) {
