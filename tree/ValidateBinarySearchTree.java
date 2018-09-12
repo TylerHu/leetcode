@@ -12,6 +12,8 @@ package tree;
  *  Solution: The basic idea is to use inorder iterate. Since when doing the inorder traversal the binary search tree,
  *  it's a sorted list at the end. If the current node's value is less than or equal to previous node's value, then
  *  it break the ordering, thus the tree is not a binary tree.
+ *  Or we could do it in a recursive way, it's similar to inorder traversal, and it turns out to run faster than iterative
+ *  way.
  */
 public class ValidateBinarySearchTree {
     public boolean isValidBST(TreeNode root) {
@@ -31,6 +33,26 @@ public class ValidateBinarySearchTree {
             //update previous node to current node
             prev = root;
             root = root.right;
+        }
+        return true;
+    }
+
+
+
+    TreeNode prev = null;
+    public boolean isValidBST2(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        if (!isValidBST(root.left)) {
+            return false;
+        }
+        if (prev != null && root.val <= prev.val) {
+            return false;
+        }
+        prev = root;
+        if (!isValidBST(root.right)) {
+            return false;
         }
         return true;
     }
