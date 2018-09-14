@@ -11,7 +11,7 @@ package design;
  *
  * Solution: When serialize a binary tree, preorder traverse the tree, and sperate each element with comma, and denote 'N' as
  * the end of the tree. When deserialize the string, split the string by comma into string array, and put it into queue.
- * Then we can construct the tree from this queue. 
+ * Then we can construct the tree from this queue.
  */
 public class SerializeAndDeserializeBinaryTree {
 
