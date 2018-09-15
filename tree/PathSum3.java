@@ -10,7 +10,7 @@ package tree;
  *
  * Solution: Here we use two level recursive both in the pathSum function and findPath function. Or we could do it in a
  * more efficient way, use presum approach.
- * 
+ *
  */
 public class PathSum3 {
     public int pathSum(TreeNode root, int sum) {
@@ -33,6 +33,7 @@ public class PathSum3 {
             return 0;
         }
         Map<Integer, Integer> preSum = new HashMap<>();
+        //init presum
         preSum.put(0, 1);
         return helper(root, 0, sum, preSum);
     }
