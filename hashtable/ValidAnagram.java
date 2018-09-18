@@ -8,7 +8,8 @@ package hashtable;
  * You may assume the string contains only lowercase alphabets.
  *
  * Solution: Since only contains lowercase alphabets, we could define an array with size 26 to store the number of each character
- * in these two string. If s and t are anagram, all the number in this array should be zero.
+ * in these two string. If s and t are anagram, all the number in this array should be zero. Another solution is to sort
+ * these two string, if they are anagram, the result of the sorting should be the same.
  */
 public class ValidAnagram {
     public boolean isAnagram(String s, String t) {
@@ -29,5 +30,13 @@ public class ValidAnagram {
             }
         }
         return true;
+    }
+
+    public boolean isAnagram2(String s, String t) {
+        char[] sc = s.toCharArray();
+        char[] tc = t.toCharArray();
+        Arrays.sort(sc);
+        Arrays.sort(tc);
+        return new String(sc).equals(new String(tc));
     }
 }
