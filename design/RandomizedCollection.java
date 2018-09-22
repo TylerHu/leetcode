@@ -42,7 +42,7 @@ public class RandomizedCollection {
             return false;
         }
         int loc = locations.get(val).iterator().next();
-        //import! need to remove the location from the map first, because the location get from the map is the first index
+        //important! need to remove the location from the map first, because the location get from the map is the first index
         // of the number, so there is one case that the lastNumber maybe is equal to the val. If the location is not at the
         // end of the list, we will get the last number and remove it's last index, and add the new location to the set.
         // If we put this line of code after the "if condition", it will becomes
