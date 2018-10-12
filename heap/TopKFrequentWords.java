@@ -8,7 +8,9 @@ package heap;
  * then the word with the lower alphabetical order comes first.
  *
  * Solution: The idea is the same with leetcode 347. Use priority queue to store all the words, and sort them according to
- * their appear times and the alphabetical order. At the end, get the first k element from the queue.
+ * their appear times and the alphabetical order. At the end, get the first k element from the queue. Function topKFrequent
+ * and topKFrequent2 are using the same idea, but it turned out that the second method runs faster than the first one.
+ *
  */
 public class TopKFrequentWords {
     public List<String> topKFrequent(String[] words, int k) {
@@ -35,5 +37,36 @@ public class TopKFrequentWords {
         }
         return result;
 
+    }
+
+    public List<String> topKFrequent2(String[] words, int k) {
+        List<String> result = new ArrayList<>();
+        Map<String, Integer> map = new HashMap<>();
+        for (String word : words) {
+            map.put(word, map.getOrDefault(word, 0) + 1);
+        }
+        PriorityQueue<Tuple> queue = new PriorityQueue<>();
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            queue.offer(new Tuple(entry.getKey(), entry.getValue()));
+        }
+        for (int i = 0; i < k && !queue.isEmpty(); ++i) {
+            result.add(queue.poll().str);
+        }
+        return result;
+    }
+
+    class Tuple implements Comparable<Tuple> {
+        String str;
+        int count;
+
+        public Tuple(String str, int count) {
+            this.str = str;
+            this.count = count;
+        }
+
+        @Override
+        public int compareTo(Tuple other) {
+            return other.count == this.count ? this.str.compareTo(other.str) : other.count - this.count;
+        }
     }
 }
