@@ -9,6 +9,8 @@ package heap;
  * Solution: The basic idea is to build a priority queue from the first row, and then pop the top element from the queue,
  * and put it next element in the same column into the queue, until we have pop (k-1)th times, and then pop last time from
  * the queue, that is the kth smallest element that we are looking for.
+ *
+ * Another solution is to use binary search to find the number that have k-1 numbers less than it in the matrix.
  */
 public class KthSmallestElementInSortedMatrix {
     public int kthSmallest(int[][] matrix, int k) {
@@ -49,5 +51,33 @@ public class KthSmallestElementInSortedMatrix {
             //sort by their value in descendent order
             return this.val - other.val;
         }
+    }
+
+
+    public int kthSmallest2(int[][] matrix, int k) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int low = matrix[0][0];
+        int high = matrix[m-1][n-1];
+        while (low < high) {
+            int middle = (low + high) >>> 1;
+            int count = 0;
+            for (int i = 0; i < m; ++i) {
+                int j = n-1;
+                while (j >= 0 && matrix[i][j] > middle) {
+                    j--;
+                }
+                count += (j+1);
+            }
+            if (count < k) {
+                //the number of elements that smaller than given value is less than k, skip it
+                low = middle+1;
+            } else {
+                //the number of elements that smaller than given value is larger than or equal to k, keep it and keep
+                //looking for the smallest number
+                high = middle;
+            }
+        }
+        return low;
     }
 }
