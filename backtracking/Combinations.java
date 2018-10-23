@@ -20,7 +20,7 @@ public class Combinations {
             result.add(new ArrayList(tempList));
         }
         for (int i = start; i <= n; ++i) {
-            //if templist size is already greater than or equal to k, skip 
+            //if templist size is already greater than or equal to k, skip
             if (tempList.size() < k) {
                 tempList.add(i);
                 backtrack(result, tempList, i+1, n, k);
