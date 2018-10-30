@@ -11,6 +11,7 @@ package linkedlist;
 public class SortList {
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {
+            //check whether head and head.next both not null, here we return head instead of null
             return head;
         }
         ListNode fast = head;
