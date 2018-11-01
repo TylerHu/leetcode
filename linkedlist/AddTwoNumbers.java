@@ -15,7 +15,7 @@ package linkedlist;
 
 import definition.ListNode;
 
-class AddTwoNumbers {
+public class AddTwoNumbers {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
