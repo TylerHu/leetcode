@@ -38,7 +38,7 @@ public class IntersectionOfTwoArrays {
             }
         }
         //list to array
-        return Arrays.stream(list.toArray(new Integer[list.size()])).mapToInt(Integer::valueOf).toArray();
+        return list.stream().mapToInt(Integer::new).toArray();
 
     }
 }
