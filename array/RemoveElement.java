@@ -12,14 +12,12 @@ package array;
  */
 public class RemoveElement {
     public int removeElement(int[] nums, int val) {
-        int length = 0;
         int index = 0;
         for (int num : nums) {
             if (num != val) {
                 nums[index++] = num;
-                length++;
             }
         }
-        return length;
+        return index;
     }
 }
