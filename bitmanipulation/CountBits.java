@@ -26,7 +26,7 @@ public class CountBits {
         result[0] = 0;
         for (int i = 1; i <= num; ++i) {
             //the bits count of the number right shift one bit, and plus the last bit
-            result[i] = result[i>>1] + i&1;
+            result[i] = result[i>>1] + (i&1);
         }
         return result;
     }
