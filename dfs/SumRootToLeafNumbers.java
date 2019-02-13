@@ -12,30 +12,21 @@ package dfs;
  */
 public class SumRootToLeafNumbers {
 
-    //total sum
-    int total;
     public int sumNumbers(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        pathSum(root, 0);
-        return total;
-
+        return pathSum(root, 0);
     }
 
-    public void pathSum(TreeNode root, int sum) {
-        //new sum from root to leaf
+    public int pathSum(TreeNode root, int sum) {
+        if (root == null) {
+            return 0;
+        }
         sum = sum * 10 + root.val;
         if (root.left == null && root.right == null) {
-            //add to total sum
-            total += sum;
-            return;
+            return sum;
         }
-        if (root.left != null) {
-            pathSum(root.left, sum);
-        }
-        if (root.right != null) {
-            pathSum(root.right, sum);
-        }
+        return pathSum(root.left, sum) + pathSum(root.right, sum);
     }
 }
