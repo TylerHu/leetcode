@@ -14,10 +14,10 @@ public class CountPrimes {
         int count = 0;
         for (int i = 2; i < n; ++i) {
             if (!notPrime[i]) {
-                //number i is not a prime number, increase count
+                //number i is a prime number, increase count
                 count++;
                 for (int j = 2; i*j < n; ++j) {
-                    //mark number i*j is prime
+                    //mark number i*j is not prime
                     notPrime[i*j] = true;
                 }
             }
