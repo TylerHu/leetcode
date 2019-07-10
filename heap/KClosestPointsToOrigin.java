@@ -8,7 +8,7 @@ package heap;
  * You may return the answer in any order.  The answer is guaranteed to be unique (except for the order that it is in.
  *
  * Solution: Create a maximum heap, and keep its size to K. At the end result all the elements in the heap.
- * 
+ *
  */
 public class KClosestPointsToOrigin {
 
